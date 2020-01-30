@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  db:
+    image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: passwd # set your password
+
+  adminer:
+    depends_on:
+      - db
+    image: adminer
+    ports:
+      - 5002:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+      ADMINER_DESIGN: nette
+
+volumes:
+  db_data:
+
+# networks:
+#   default:
+#     external:
+#       name: localhost
