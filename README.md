@@ -1,1 +1,2 @@
-# composing-docker
+list of sample/basic docker-compose :
+- mysql
